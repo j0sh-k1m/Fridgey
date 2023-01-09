@@ -1,6 +1,5 @@
 import { signOut, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import Login from "../components/layout/Login";
 
 const LoginPage = () => {
   const { data: session } = useSession();
