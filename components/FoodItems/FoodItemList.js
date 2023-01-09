@@ -1,5 +1,6 @@
 import FoodItem from "./FoodItem";
 import Card from "../UI/Card";
+import { useSession } from "next-auth/react";
 
 const FoodItemList = (props) => {
   const card_colors = [
@@ -13,6 +14,8 @@ const FoodItemList = (props) => {
     "bg-emerald-400",
   ];
 
+  const { data: session } = useSession();
+
   const styleString = `mx-20 border mt-5 mb-5 ${card_colors[props.index]}`;
 
   return (
@@ -24,18 +27,22 @@ const FoodItemList = (props) => {
           </h1>
         </div>
         <ul>
-          {props.foodItems.map((item) => (
-            <FoodItem
-              key={item.id}
-              id={item.id}
-              image_url={item.image_url}
-              name={item.name}
-              type={item.type}
-              expiry_date={item.expiry_date}
-              location={item.location}
-              entry_date={item.entry_date}
-            />
-          ))}
+          {props.foodItems.map((item) => {
+            if (session.user.email === item.email) {
+              return (
+                <FoodItem
+                  key={item.id}
+                  id={item.id}
+                  image_url={item.image_url}
+                  name={item.name}
+                  type={item.type}
+                  expiry_date={item.expiry_date}
+                  location={item.location}
+                  entry_date={item.entry_date}
+                />
+              );
+            }
+          })}
         </ul>
       </div>
     </Card>

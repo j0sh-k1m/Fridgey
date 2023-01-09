@@ -1,11 +1,13 @@
 import { signOut, signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { setCookie } from 'cookies-next';
 
 const LoginPage = () => {
   const { data: session } = useSession();
 
   const router = useRouter();
   const goToFridgeyHandler = () => {
+    setCookie('email', session.user.email);
     router.push("/items");
   };
 
