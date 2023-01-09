@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import AllFoodItems from "../../components/FoodItems/AllFoodItems";
 import MainNavigation from "../../components/layout/MainNavigation";
 import { useSession, signIn, getSession } from "next-auth/react";
-import { unstable_getServerSession } from "next-auth/next";
 import { parseCookies } from "nookies";
 
 require("dotenv").config();

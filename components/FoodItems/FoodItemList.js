@@ -10,7 +10,7 @@ const FoodItemList = (props) => {
     "bg-cyan-300",
     "bg-fuchsia-300",
     "bg-blue-300",
-    "bg-emerald-300",
+    "bg-emerald-400",
   ];
 
   const styleString = `mx-20 border mt-5 mb-5 ${card_colors[props.index]}`;
