@@ -137,14 +137,14 @@ const EditFoodItemForm = (props) => {
             onChange={onChangeHanlder}
             style={typeError}
           >
-            <option value="cooked-dish">Cooked Dish</option>
-            <option value="dairy">Dairy</option>
-            <option value="meat">Meat</option>
-            <option value="vegetable">Vegetable</option>
-            <option value="fruit">Fruit</option>
-            <option value="dessert">Dessert</option>
-            <option value="drink">Drink</option>
-            <option value="other">Other</option>
+            <option selected={props.foodItem.type === "cooked-dish" ? true : false} value="cooked-dish">Cooked Dish</option>
+            <option selected={props.foodItem.type === "dairy" ? true : false} value="dairy">Dairy</option>
+            <option selected={props.foodItem.type === "meat" ? true : false} value="meat">Meat</option>
+            <option selected={props.foodItem.type === "vegetable" ? true : false} value="vegetable">Vegetable</option>
+            <option selected={props.foodItem.type === "fruit" ? true : false} value="fruit">Fruit</option>
+            <option selected={props.foodItem.type === "dessert" ? true : false} value="dessert">Dessert</option>
+            <option selected={props.foodItem.type === "drink" ? true : false} value="drink">Drink</option>
+            <option selected={props.foodItem.type === "other" ? true : false} value="other">Other</option>
           </select>
         </div>
         <div className="mb-4">
@@ -177,8 +177,9 @@ const EditFoodItemForm = (props) => {
             ref={locationInputRef}
             style={locationError}
           >
-            <option value="freezer">Freezer</option>
-            <option value="fridge">Fridge</option>
+            <option selected={props.foodItem.location === "freezer" ? true : false} value="freezer">Freezer</option>
+            <option selected={props.foodItem.location === "fridge" ? true : false} value="fridge">Fridge</option>
+            <option selected={props.foodItem.location === "pantry" ? true : false} value="pantry">Pantry</option>
           </select>
         </div>
         <div>

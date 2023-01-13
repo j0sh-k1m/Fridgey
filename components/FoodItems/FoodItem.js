@@ -68,8 +68,12 @@ const FoodItem = (props) => {
               <span className="text-cyan-500 font-bold">
                 Location: {props.location}
               </span>
-            ) : (
+            ) : props.location === "freezer" ? (
               <span className="text-blue-500 font-bold">
+                Location: {props.location}
+              </span>
+            ) : (
+              <span className="text-orange-500 font-bold">
                 Location: {props.location}
               </span>
             )}

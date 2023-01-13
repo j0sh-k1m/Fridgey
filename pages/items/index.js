@@ -5,7 +5,6 @@ import { Fragment } from "react";
 import AllFoodItems from "../../components/FoodItems/AllFoodItems";
 import MainNavigation from "../../components/layout/MainNavigation";
 import { useSession, signIn, getSession } from "next-auth/react";
-import { parseCookies } from "nookies";
 
 require("dotenv").config();
 
@@ -51,12 +50,7 @@ const HomePage = (props) => {
   }
 };
 
-export const getServerSideProps = async ({req}) => {
-  const session = await getSession({ req });
-  // const cookies = parseCookies()
-  // const user = cookies?.user ? JSON.parse(cookies.user) : session?.user;
-  // const email = user?.email;
-
+export const getStaticProps = async () => {
   const client = await MongoClient.connect(
     `mongodb+srv://joshFridgey:${process.env.SERVER_PASSWORD}@cluster0.s6p97p0.mongodb.net/fridgey?retryWrites=true&w=majority`
   );
@@ -324,6 +318,7 @@ export const getServerSideProps = async ({req}) => {
         entry_date: foodItem.entry_date,
         email: foodItem.email,
       })),
+      validation: 1, 
     }, 
   };
 };

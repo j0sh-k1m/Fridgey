@@ -154,6 +154,7 @@ const FoodItemForm = (props) => {
           >
             <option value="freezer">Freezer</option>
             <option value="fridge">Fridge</option>
+            <option value="pantry">Pantry</option>
           </select>
         </div>
         <div>
