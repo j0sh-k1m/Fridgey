@@ -7,9 +7,10 @@ const FoodItem = (props) => {
 
   const millisPerDay = 86400000;
   const expiryDate = new Date(props.expiry_date);
-  const entryDate = new Date(props.entry_date);
-  const daysUntilExpiryDate =
-    (expiryDate.getTime() - entryDate.getTime()) / millisPerDay;
+  const today = new Date();
+  const daysUntilExpiryDate = Math.ceil(
+    (expiryDate.getTime() - today.getTime()) / millisPerDay
+  );
   const outputString =
     daysUntilExpiryDate <= 0
       ? "Expired"
